@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifyIT AI - Secure Your Digital World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon_for_verifyit.png') }}" alt="VerifyIT Logo" class="logo-img">
+                <span class="logo-text">VerifyIT<sup>AI</sup></span>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#about-us">About Us</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="hero">
+            <img src="{{ url_for('static', filename='icon_for_verifyit.png') }}" alt="VerifyIT Logo">
+            <h1>VerifyIT<sup>AI</sup></h1>
+            <p class="subtext">Your trusted partner in cybersecurity and privacy protection.</p>
+            <div class="cta-buttons">
+                <button class="get-started">Get Started</button>
+                <button type="button"  class="learn-more" onclick="redirectToLogin()">Sign Up</button>
+            </div>
+        </section>
+
+        <section class="upload-search">
+            <h2>Analyze Suspicious Files, URLs, and Domains</h2>
+            <p>Secure your digital environment by analyzing files, domains, IPs, and URLs to detect malware and other threats.</p>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="file" onclick="activateTab(this)">File</div>
+                <div class="tab" data-tab="url" onclick="activateTab(this)">URL</div>
+                <div class="tab" data-tab="search" onclick="activateTab(this)">Search</div>
+            </div>
+
+            <div class="tab-content">
+                <div id="file" class="tab-pane active">
+                    <label for="file-upload" class="file-label">Upload File</label>
+                    <input type="file" id="file-upload" class="file-input">
+                    <button class="submit-file">Analyze File</button>
+                    <div id="file-preview"></div>
+                </div>
+                <div id="url" class="tab-pane">
+                    <label for="url-input" class="url-label">Paste URL</label>
+                    <input type="url" id="url-input" placeholder="Enter URL" class="url-input">
+                    <button class="submit-url">Analyze URL</button>
+                    <div id="url-preview"></div>
+                </div>
+                <div id="search" class="tab-pane">
+                    <label for="search-input" class="search-label">Search</label>
+                    <input type="text" id="search-input" placeholder="Enter IP address, domain, or hash" class="search-input">
+                    <button class="search-button">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="analysis-result"></div>
+    </main>
+    
+    <div class="about-container" id="about-us">
+        <h1>About Us</h1>
+        <p>Welcome to our Content Analysis and Security Insights Platform! Our mission is to help users navigate digital content securely, using advanced AI and machine learning to identify risks such as malware, phishing, and data theft.</p>
+
+        <h2>Meet The Team</h2>
+        <div class="team-cards">
+            <div class="card">
+                <img src="{{ url_for('static', filename='IMG-20241221-WA0003.jpg') }}" alt="Team Member 1">
+                <h3>Uday Kumar</h3>
+                <p class="card-title">Team Lead</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='IMG-20241220-WA0010.jpg') }}" alt="Team Member 2">
+                <h3>Narisimha</h3>
+                <p class="card-title">Backend Developer</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='IMG-20241221-WA0001.jpg') }}" alt="Team Member 4">
+                <h3>Sandeep</h3>
+                <p class="card-title">AI & Machine Learning Expert</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='bar.jpg') }}" alt="Team Member 3">
+                <h3>Bharadwaj</h3>
+                <p class="card-title">Frontend Developer</p>
+            </div>
+        </div>
+
+        <p>Our platform is designed to give users the peace of mind they deserve while navigating the digital world. By providing detailed insights into the safety of links, apps, and documents, we help users make better-informed decisions to protect their data and privacy.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 VerifyIT AI. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching logic
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-pane');
+
+        function activateTab(tab) {
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(tc => tc.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        }
+
+       
+
+        // Analyze File
+        document.querySelector('.submit-file').addEventListener('click', async () => {
+            const fileInput = document.getElementById('file-upload');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+                displayAnalysisResult(result);
+                displayFilePreview(file);
+            } catch (error) {
+                console.error('Error analyzing file:', error);
+            }
+        });
+
+        // Analyze URL
+        document.querySelector('.submit-url').addEventListener('click', async () => {
+            const urlInput = document.getElementById('url-input');
+            const url = urlInput.value;
+            const formData = new FormData();
+            formData.append('url', url);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+                displayAnalysisResult(result);
+                displayUrlPreview(url);
+            } catch (error) {
+                console.error('Error analyzing URL:', error);
+            }
+        });
+
+        // Display analysis result
+        function displayAnalysisResult(result) {
+            const analysisResultDiv = document.getElementById('analysis-result');
+            analysisResultDiv.innerHTML = `
+                <h3>Analysis Result</h3>
+                <pre>${JSON.stringify(result, null, 2)}</pre>
+            `;
+        }
+
+        // Display file preview
+        function displayFilePreview(file) {
+            const filePreviewDiv = document.getElementById('file-preview');
+            filePreviewDiv.innerHTML = `
+                <h4>File Preview</h4>
+                <p>File Name: ${file.name}</p>
+                <p>File Size: ${file.size} bytes</p>
+                <p>File Type: ${file.type}</p>
+            `;
+        }
+
+        // Display URL preview
+        function displayUrlPreview(url) {
+            const urlPreviewDiv = document.getElementById('url-preview');
+            urlPreviewDiv.innerHTML = `
+                <h4>URL Preview</h4>
+                <p>URL: ${url}</p>
+                <img src="https://s2.googleusercontent.com/s2/favicons?domain=${url}" alt="Website Icon" />
+            `;
+        }
+    </script>
+</body>
+</html>

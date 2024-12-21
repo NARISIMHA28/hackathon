@@ -1,0 +1,359 @@
+/* General Reset and Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html{
+    scroll-behavior: smooth;
+
+  }
+  body {
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-color:  #1a1a2e;
+}
+
+/* Decrease the size of the logo image in the navbar */
+.navbar .logo img {
+    width: 50px;  /* Adjust the width as needed */
+    height: auto; /* Keep the aspect ratio of the image */
+}
+  
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .navbar a:hover {
+    background-color: #6c63ff;
+  }
+  
+  /* Hero Section Styles */
+  .hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #282843;
+  }
+  
+  .hero img {
+    width: 80px;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 40px;
+    color: #6c63ff;
+  }
+  
+  .subtext {
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+  }
+  
+  .cta-buttons button {
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .cta-buttons button:hover {
+    background-color: #5a52d1;
+  }
+  
+  /* Upload and Search Section Styles */
+  .upload-search {
+    text-align: center;
+    margin-top: 50px;
+    color: #636cff;
+    margin-bottom: 100px;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .tabs .tab {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #282843;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #aaa;
+}
+
+.tabs .tab:hover {
+    background-color: #6c63ff;
+}
+
+.tabs .tab.active {
+    background-color: #6c63ff; /* Active color */
+    color: #aaa; /* Active text color */
+}
+  
+  .tab-content {
+    margin-top: 20px;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
+  .file-label, .url-label, .search-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .file-input, .url-input, .search-input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+   .search-button {
+    padding: 10px 20px;
+    background-color: #5a52d1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px;
+  }
+  .submit-url{
+    padding: 10px 20px;
+    background-color: #5a52d1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px;
+  }
+  .submit-file{
+    padding: 10px 20px;
+    background-color: #5a52d1;
+    color: white;
+    margin-top: 50px;
+  }
+  
+  .submit-url:hover, .search-button:hover {
+    background-color: #5a52d1;
+  }
+  
+  /* Functions Section */
+  .functions {
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+  .card img{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Footer Section Styles */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+  }
+  
+  .footer-nav a:hover {
+    text-decoration: underline;
+  }
+  .footer-content p{
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a2e; /* Dark background for the entire screen */
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+}
+
+/* About Us Section */
+.about-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #6c63ff;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.1rem;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #aaa;
+}
+
+/* Meet the Team Section */
+h2 {
+    font-size: 2rem;
+    color: #6c63ff;
+    margin: 40px 0 20px;
+}
+
+/* Team Cards */
+.team-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #282843;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    animation: slideIn 0.7s ease-out;
+}
+.login{
+  background-color: #282843;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out; /* Fade-in-up effect */
+}
+
+.footer p {
+    color: #aaa;
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
